@@ -1,15 +1,14 @@
 const { Router } = require("express");
-const users = require("./customer/user.route");
-const bill = require("./billing/bill.route");
-const billService = require("./billingWorker/billService.route");
+const users = require("./user/user.route");
+const event = require("./event/event.route");
+const bookings = require("./bookings/bookings.route");
 
 module.exports = () => {
   const router = Router();
 
-  router.use("/customers", users);
-  router.use("/bill", bill);
-  router.use("/service", billService);
-
+  router.use("/user", users);
+  router.use("/event", event);
+  router.use("/bookings", bookings);
 
   return router;
 };

@@ -23,8 +23,8 @@ module.exports = function validateRequest(schema, field = "body") {
           }))
         : [
             {
-              [String(result.error.message.split(" ")[0])]: result.error
-                .message,
+              [String(result.error.message.split(" ")[0])]:
+                result.error.message,
             },
           ];
       return next(

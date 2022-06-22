@@ -10,6 +10,9 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "14.17.4"
+  },
   "dependencies": {
     "@joi/date": "2.1.0",
     "amqplib": "0.9.0",

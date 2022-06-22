@@ -19,8 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(function (_err, _req, _res, _) {
-
-
   if (_err instanceof SyntaxError) {
     return _res.status(HTTP.BAD_REQUEST).json({
       code: HTTP.UNPROCESSABLE_ENTITY,
@@ -73,13 +71,10 @@ apiRouter.use((error, _req, res, _next) => {
     data: error.data || null,
     ...(process.env.NODE_ENV === "development" && { stack: error.stack }),
   });
-
 });
 
-const apiURL = `/blusalt`;
-
+const apiURL = `/figfinance`;
 
 app.use(apiURL, apiRouter);
-
 
 module.exports = app;

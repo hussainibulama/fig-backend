@@ -2,8 +2,7 @@ const { HTTP } = require("../constants/http");
 const { RESPONSE } = require("../constants/response");
 const createError = require("../helpers/createError");
 const { jwtVerify } = require("../helpers/token");
-const User = require("../services/customer/user.model");
-
+const User = require("../services/user/user.model");
 
 exports.checkAuth = async (req, _, next) => {
   const message = "Unauthorized";
@@ -22,7 +21,6 @@ exports.checkAuth = async (req, _, next) => {
     );
   }
   try {
-
     const { id } = jwtVerify(token) || {};
 
     const user = await User.findById(id);
@@ -38,7 +36,6 @@ exports.checkAuth = async (req, _, next) => {
         ])
       );
     }
-
 
     if (user) {
       req.userId = id;
