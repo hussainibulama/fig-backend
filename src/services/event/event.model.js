@@ -9,6 +9,7 @@ const schema = mongoose.Schema(
     isVirtual: { type: Boolean },
     address: { type: String },
     time: { type: String },
+    file: { type: String },
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

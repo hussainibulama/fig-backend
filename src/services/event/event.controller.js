@@ -5,9 +5,9 @@ const { createResponse } = require("../../helpers/createResponse");
 const EventService = require("./event.service");
 
 exports.CreateEvent = async (req, res, next) => {
-  const id = req.userId;
   try {
     const { error, message, data } = await EventService.CreateEvent(
+      req,
       res,
       req.body
     );

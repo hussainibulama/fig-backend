@@ -1,10 +1,11 @@
 const Events = require("./event.model");
-exports.CreateEvent = async (res, data) => {
+exports.CreateEvent = async (req, res, data) => {
   let events;
   try {
-    let dates = new Date(data.date);
+    let dates = new Date(req.body.date);
     events = await Events.create({
-      ...data,
+      ...req.body,
+      file: req.file.location,
       date: dates,
     });
     return {

@@ -33,6 +33,7 @@ exports.registerUser = async (res, data) => {
 exports.loginUser = async (user, data) => {
   try {
     const passwordMatch = await comparePassword(user.password, data.password);
+    console.log("try", passwordMatch);
     if (!passwordMatch) {
       return {
         error: true,
